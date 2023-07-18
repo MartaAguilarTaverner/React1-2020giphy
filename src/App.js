@@ -1,13 +1,25 @@
 import React from 'react';
-import './App.css';
+
+import { Link, Route } from 'wouter';
+
 import ListOfGifs from './components/ListOfGifs';
+
+import './App.css';
 
 
 export default function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <ListOfGifs keyword='mapache' />
+        <h1>App</h1>
+        <Link to='/gif/panda'>GIFS de Pandas</Link>
+        <Link to='/gif/cat'>GIFS de Gatos</Link>
+        <Link to='/gif/dog'>GIFS de Perros</Link>
+        <Link to='/gif/racoon'>GIFS de Mapaches</Link>
+        <Route
+        component={ListOfGifs}
+        path='/gif/:keyword' />
+
       </section>
     </div>
   );

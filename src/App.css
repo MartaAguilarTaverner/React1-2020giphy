@@ -11,9 +11,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 2rem;
 }
 
 button {
   font-size: 5vh;
+}
 
+a {
+  color: #09f;
+  font-size: 2.5vh;
 }
