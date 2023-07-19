@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 
 const POPULAR_GIFS = ['Mapache', 'Panda', 'Gato', 'Perro', 'Nutria'];
 
 export default function Home() {
   const [keyword, setKeyword] = useState('');
 
+  const [path, pushLocation] = useLocation()
+  //useHistory in react router in wouter is the useLocation
+
   const handleSubmit = evt => {
     evt.preventDefault()
-    //navegar a otra ruta
+    pushLocation(`/search/${keyword}`)
   }
 
   const handleChange = evt => {
@@ -18,7 +21,7 @@ export default function Home() {
   return (
     <>
     <form onSubmit={handleSubmit}>
-      <input onChange={handleChange} type="text" value={keyword} />
+      <button>Search</button>
     </form>
     <h3 className="PopularGifs-title">Los gifs más populares</h3>
     <ul>
