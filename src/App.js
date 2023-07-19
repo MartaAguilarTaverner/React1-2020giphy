@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Link, Route } from 'wouter';
 
-import ListOfGifs from './components/ListOfGifs';
+import Home from './pages/Home/home';
+import SearchResults from './pages/SearchResults/searchResults';
+import Detail from './pages/Detail/detail';
 
 import './App.css';
 
@@ -11,15 +13,21 @@ export default function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <h1>App</h1>
-        <Link to='/gif/panda'>GIFS de Pandas</Link>
-        <Link to='/gif/cat'>GIFS de Gatos</Link>
-        <Link to='/gif/dog'>GIFS de Perros</Link>
-        <Link to='/gif/racoon'>GIFS de Mapaches</Link>
+        <Link to='/'>
+        <img className='App-logo' alt='giffy Logo' src='/public/logo.png' />
+        </Link>
         <Route
-        component={ListOfGifs}
-        path='/gif/:keyword' />
-
+          component={Home}
+          path='/'
+        />
+        <Route
+          component={SearchResults}
+          path='/search/:keyword'
+          />
+        <Route
+          component={Detail}
+          path='/gif/:id'
+          />
       </section>
     </div>
   );
