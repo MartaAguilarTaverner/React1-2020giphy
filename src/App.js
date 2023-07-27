@@ -2,34 +2,41 @@ import React from 'react';
 
 import { Link, Route } from 'wouter';
 
+import StaticContext from './context/StaticContext';
+
 import Home from './pages/Home/home';
 import SearchResults from './pages/SearchResults/searchResults';
 import Detail from './pages/Detail/detail';
 
 import './App.css';
+import { GifsContextProvider } from './context/GifsContextProvider';
 
 
 export default function App() {
   return (
-    <div className="App">
-      <section className="App-content">
-        <Link to='/'>
-        <img className='App-logo' alt='giffy Logo' src='/public/logo.png' />
-        </Link>
-        <Route
-          component={Home}
-          path='/'
-        />
-        <Route
-          component={SearchResults}
-          path='/search/:keyword'
-          />
-        <Route
-          component={Detail}
-          path='/gif/:id'
-          />
-      </section>
-    </div>
+    <StaticContext.Provider value={ {name:'marta', subscribed: true}}>
+      <div className="App">
+        <section className="App-content">
+          <Link to='/'>
+          <img className='App-logo' alt='giffy Logo' src='logo.png' />
+          </Link>
+          <GifsContextProvider>
+            <Route
+              component={Home}
+              path='/'
+            />
+            <Route
+              component={SearchResults}
+              path='/search/:keyword'
+              />
+            <Route
+              component={Detail}
+              path='/gif/:id'
+              />
+            </GifsContextProvider>
+        </section>
+      </div>
+    </StaticContext.Provider>
   );
 }
 

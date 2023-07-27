@@ -1,29 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Link, useLocation } from 'wouter';
 
-import getGifs from "../../services/getGifs";
 import ListOfGifs from "../../components/ListOfGifs/ListOfGifs";
+
+import {useGifs} from "../../hooks/useGifs";
 
 const POPULAR_GIFS = ['Mapache', 'Panda', 'Gato', 'Perro', 'Nutria'];
 
 export default function Home() {
   const [keyword, setKeyword] = useState('');
 
-  const [path, pushLocation] = useLocation();
+  const [, pushLocation] = useLocation();
   //useHistory in react router in wouter is the useLocation
 
-  const [ loading, setLoading] = useState(false);
-  const [ gifs, setGifs ] = useState([]);
-
-  useEffect(function () {
-    setLoading(true)
-    getGifs({ keyword: 'Rick' })
-      .then(gifs => {
-        setGifs(gifs)
-        setLoading(false)
-      });
-  }, [keyword]);
+  const { gifs } = useGifs();
 
   const handleSubmit = evt => {
     evt.preventDefault()
