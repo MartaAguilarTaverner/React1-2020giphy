@@ -1,17 +1,13 @@
 .Gif {
-  border: 0.5vh solid #eee;
-  border-radius: 3em;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 2rem;
-  padding: 3rem;
-  color: #fff;
-  text-decoration: none;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  padding: 0;
+
 }
 
 .Gif h4 {
   margin: 0;
+  font-size: 1px;
 }
 
 .Gif img {

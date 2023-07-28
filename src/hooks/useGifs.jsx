@@ -2,10 +2,11 @@ import { useContext, useState, useEffect } from "react";
 
 import getGifs from "../services/getGifs";
 
-import { GifsContextProvider } from "../context/GifsContextProvider";
+import GifsContext from "../context/GifsContext";
+
 export function useGifs ({ keyword } = { keyword: null }) {
   const [ loading, setLoading] = useState(false);
-  const { gifs, setGifs } =useContext(GifsContextProvider);
+  const { gifs, setGifs } = useContext(GifsContext);
 
   useEffect(function () {
     setLoading(true)
@@ -22,6 +23,5 @@ export function useGifs ({ keyword } = { keyword: null }) {
   }, [keyword, setGifs]);
 //ALWAYS PUT DEPENDENCIES TO NOT CREATE AN INFINITE LOOP it indicates when the component is going to render
 
-return {loading, gifs};
-
+  return {loading, gifs};
 };

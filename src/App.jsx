@@ -3,14 +3,14 @@ import React from 'react';
 import { Link, Route } from 'wouter';
 
 import StaticContext from './context/StaticContext';
+import {GifsContextProvider} from './context/GifsContext';
 
-import Home from './pages/Home/home';
-import SearchResults from './pages/SearchResults/searchResults';
-import Detail from './pages/Detail/detail';
+import Home from './pages/Home';
+import SearchResults from './pages/SearchResults';
+import Detail from './pages/Detail';
+
 
 import './App.css';
-import { GifsContextProvider } from './context/GifsContextProvider';
-
 
 export default function App() {
   return (

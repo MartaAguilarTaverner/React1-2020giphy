@@ -1,5 +1,5 @@
-import Spinner from "../../components/Spinner/Spinner";
-import ListOfGifs from "../../components/ListOfGifs/ListOfGifs";
+import Spinner from "../../components/Spinner";
+import ListOfGifs from "../../components/ListOfGifs";
 
 import {useGifs} from "../../hooks/useGifs";
 

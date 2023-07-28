@@ -2,8 +2,15 @@
   text-align: center;
 }
 
+.App-logo {
+  max-width: 20vh;
+  padding-bottom: 3rem;
+  padding-top: 2rem;
+  border-radius: 1em;
+}
+
 .App-content {
-  background-color: #282c34;
+  background-color: #bd9dcb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
